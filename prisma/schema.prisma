@@ -1,0 +1,39 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Month {
+  id           Int       @id @default(autoincrement())
+  month        Int
+  year         Int
+  expenses_sum Float
+  incomes_sum  Float
+  expenses     Expense[]
+  incomes      Income[]
+}
+
+model Expense {
+  id       Int    @id @default(autoincrement())
+  value    Float
+  name     String
+  month_id Int
+
+  month Month @relation(fields: [month_id], references: [id])
+}
+
+model Income {
+  id       Int    @id @default(autoincrement())
+  value    Float
+  name     String
+  month_id Int
+
+  month Month @relation(fields: [month_id], references: [id])
+}
