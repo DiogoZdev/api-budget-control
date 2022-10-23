@@ -11,7 +11,7 @@ The project is under development and it will be improved in future taks:
 - [ ] UPDATE, DELETE operations
 - [ ] More detailed filters
 
-## 💻 Pré-requisitos
+## 💻 Requirements
 
 Before starting you must have:
 * Node installed and running
@@ -36,7 +36,4 @@ $ npx prisma studio
 
 ## 😄 Contribute
 
-As the project is under development, any feedback and suggestion is highly appreciated. Thank you
-
-
-[⬆ Back to top](#API Budget Control)<br>
+As the project is under development, any feedback and suggestion is highly appreciated. Thank you!
