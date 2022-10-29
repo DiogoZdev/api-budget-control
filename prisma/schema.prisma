@@ -14,8 +14,6 @@ model Month {
   id           Int       @id @default(autoincrement())
   month        Int
   year         Int
-  expenses_sum Float
-  incomes_sum  Float
   expenses     Expense[]
   incomes      Income[]
 }

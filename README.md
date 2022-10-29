@@ -2,7 +2,7 @@
 
 > Project made with NodeJS, Express, PrismaORM and MySQL. This API will control the data flow of a monthly budget control.
 
-### Adjustments
+## Adjustments
 
 The project is under development and it will be improved in future taks:
 
