@@ -21,7 +21,7 @@ app.get('/load', async (req: Request, res: Response) => {
   try {
     const date = new Date()
     const [month, year] = [date.getMonth(), date.getFullYear()];
-    const thisMonth = await prisma.month.findFirst({ where: { AND: [{month: month+1}, { year }] }});
+    const thisMonth = await prisma.month.findFirst({ where: { AND: [{month: month+1}, { year }] }, include: { expenses: true, incomes: true}});
     res.json(thisMonth);
   } catch {
     res.send('An error occurred loading the initial data')
@@ -34,7 +34,7 @@ app.get('/load', async (req: Request, res: Response) => {
 app.get('/report/:id', async (req: Request, res: Response) => {
   const monthId = +req.params.id;
   try {
-    const lastMonths = await prisma.month.findMany({ where: { AND: [{id: { gt: monthId-6 }}, {id: {lte: monthId }}]}});
+    const lastMonths = await prisma.month.findMany({ where: { AND: [{id: { gt: monthId-6 }}, {id: {lte: monthId }}]}, include: { expenses: true, incomes: true}});
     res.json(lastMonths);
   } catch {
     res.send('It was not possible to load the report');
