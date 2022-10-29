@@ -14,7 +14,9 @@ app.get('/', (req: Request, res: Response) => {
   res.send('API is running');
 });
 
-// Get values from last 6 months
+/**
+ * Method to load data from current month
+ */
 app.get('/load', async (req: Request, res: Response) => {
   try {
     const date = new Date()
@@ -26,7 +28,9 @@ app.get('/load', async (req: Request, res: Response) => {
   }
 });
 
-// get data from six last months
+/**
+ * Method to load data from last six months
+ */
 app.get('/report/:id', async (req: Request, res: Response) => {
   const monthId = +req.params.id;
   try {
@@ -37,7 +41,9 @@ app.get('/report/:id', async (req: Request, res: Response) => {
   }
 })
 
-// Add new Month
+/**
+ * Method to add a new month
+ */
 app.post('/month', async (req: Request, res: Response) => {
   const date = new Date();
   const [month, year] = [date.getMonth(), date.getFullYear()];
@@ -50,6 +56,9 @@ app.post('/month', async (req: Request, res: Response) => {
   }
 })
 
+/**
+ * Method to update a month
+ */
 app.put('/month', async (req: Request, res: Response) => {
   try {
     const month = req.body as Month;
@@ -60,6 +69,9 @@ app.put('/month', async (req: Request, res: Response) => {
   }
 })
 
+/**
+ * Method to delete a month
+ */
 app.delete('/month/:id', async (req: Request, res: Response) => {
   try {
     const id = +req.params.id;
@@ -75,7 +87,9 @@ app.delete('/month/:id', async (req: Request, res: Response) => {
 // --------
 
 
-//list all expenses from month
+/**
+ * Method to list all expenses from the month by ID
+ */
 app.get('/month/:number/expenses', async (req: Request, res: Response) => {
   try {
     const month: number = +req.params.number;
@@ -86,7 +100,9 @@ app.get('/month/:number/expenses', async (req: Request, res: Response) => {
   }
 })
 
-// Add new Expense
+/**
+ * Method to add new Expense
+ */
 app.post('/expense', async (req: Request, res: Response) => {
   try {
     const expense = req.body;
@@ -97,7 +113,9 @@ app.post('/expense', async (req: Request, res: Response) => {
   } 
 })
 
-// Method to edit existing expense
+/**
+ * Method to edit existing expense
+ */
 app.put('/expense', async (req: Request, res: Response) => {
   try {
     const expense = req.body;
@@ -108,6 +126,9 @@ app.put('/expense', async (req: Request, res: Response) => {
   }
 })
 
+/**
+ * Method to delete expense by ID
+ */
 app.delete('/expense/:id', async (req: Request, res: Response) => {
   try {
     const id: number = +req.params.id;
