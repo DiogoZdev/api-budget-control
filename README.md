@@ -12,11 +12,16 @@ The project is under development and it will be improved in future taks:
 
 ## 💻 Requirements
 
-Before starting you must have:
-* Node installed and running
-* MySQL database configured
+Before starting you must have installed:
+* Node
+* Docker Compose
 
 ## ☕ Using the project
+
+To setup local database:
+```
+$ docker-compose up -d
+```
 
 To configure local database according to the Prisma Schema:
 ```
