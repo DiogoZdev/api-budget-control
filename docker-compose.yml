@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+
+  mysql_dev:
+    image: mysql
+    env_file:
+      - ./.env
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASS}
+      MYSQL_DATABASE: ${DB_NAME}
+    ports:
+      - "3310:3306"
+    networks:
+      - backend
+
+
+volumes:
+  db_data: {}
+
+networks: 
+  backend:
